@@ -30,6 +30,15 @@ oauth_token_field_name: ''
 oauth_expiry_field_name: ''
 oauth_expiry_strategy: ''
 oauth_fixed_expiry_ms: ''
+custom_fields:
+- keyname: district_id
+  field_type: string
+  name: District ID
+  description: Find your school using https://lookup.nutrislice.com/. Examine the URL in your browser. The district is the section before .nutrislice.com (i.e. mydistrict.nutrislice.com, write mydistrict here)
+- keyname: school_id
+  field_type: string
+  name: School ID
+  description: The last section of the URL, after /menu/ (i.e. https://mydistrict.nutrislice.com/menu/myschool, write myschool here
 name: Chompy
 description: ''
 refresh_interval: 15
