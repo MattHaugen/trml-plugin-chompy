@@ -11,7 +11,7 @@ async function run(input) {
     `https://${districtId}.api.nutrislice.com/menu/api/weeks/school/${schoolId}/menu-type/breakfast/${today.getFullYear()}/${(today.getMonth() + 1).toString().padStart(2, "0")}/${today.getDate().toString().padStart(2, "0")}/`,
   );
 
-  const finalResults = [];
+  const finalResults = { days: [] };
 
   const transformApiResponse = (response) => {
     return response.days.map((dayData) => {
@@ -58,7 +58,7 @@ async function run(input) {
 
     lunchMenu.forEach((day) => {
       if (!daysOfWeekToIgnore.includes(new Date(day.date).getUTCDay())) {
-        finalResults.push({
+        finalResults.days.push({
           date: day.date,
           lunch: day.stations,
           breakfast: [],
@@ -74,11 +74,11 @@ async function run(input) {
 
     breakfastMenu.forEach((day) => {
       if (!daysOfWeekToIgnore.includes(new Date(day.date).getUTCDay())) {
-        const existingDay = finalResults.find((d) => d.date === day.date);
+        const existingDay = finalResults.days.find((d) => d.date === day.date);
         if (existingDay) {
           existingDay.breakfast = day.stations;
         } else {
-          finalResults.push({
+          finalResults.days.push({
             date: day.date,
             lunch: [],
             breakfast: day.stations,

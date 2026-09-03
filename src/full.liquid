@@ -1,6 +1,6 @@
 <div class="layout">
   <div class="columns">
-    {% for day in data %}
+    {% for day in days %}
     <div class="column">
       <span class="title title--large">{{ day.date | date: "%A" }}</span>
       <span class="title title--small">{{ day.date | date: "%b %e, %Y"}}</span>
