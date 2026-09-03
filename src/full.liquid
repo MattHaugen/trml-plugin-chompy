@@ -1,8 +1,9 @@
 <div class="layout">
   <div class="columns">
     {% for day in data %}
-    <div class="column outline">
-      <span class="title">{{ day.date }}</span>
+    <div class="column">
+      <span class="title title--large">{{ day.date | date: "%A" }}</span>
+      <span class="title title--small">{{ day.date | date: "%b %e, %Y"}}</span>
 
       {% for station in day.breakfast %}
       <img class="image image-dither rounded image--cover" src="{{ station.image }}" />
