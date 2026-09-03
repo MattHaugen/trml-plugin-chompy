@@ -5,6 +5,8 @@
       <span class="title">{{ day.date }}</span>
 
       {% for station in day.breakfast %}
+      <img class="image image-dither rounded image--cover" src="{{ station.image }}" />
+
       <div class="item">
         <div class="content">
           <span class="title title--small">{{ station.name }}</span>
@@ -17,6 +19,8 @@
         </div>
       </div>
       {% endfor %} {% for station in day.lunch %}
+      <img class="image image-dither rounded image--cover" src="{{ station.image }}" />
+      
       <div class="item">
         <div class="content">
           <span class="title title--small">{{ station.name }}</span>
