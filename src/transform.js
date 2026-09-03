@@ -1,12 +1,14 @@
-async function run() {
+async function run(input) {
+  const districtId = input.trmnl.plugin_settings.custom_fields_values.district_id
+  const schoolId = input.trmnl.plugin_settings.custom_fields_values.school_id
   const daysOfWeekToIgnore = [0, 6]; // Sunday and Saturday
   const stationsToIgnore = ["Fruit & Vegetable Bar", "Milk & Condiments"];
   const today = new Date();
   const lunchCall = await fetch(
-    `https://edinaschools.api.nutrislice.com/menu/api/weeks/school/countryside/menu-type/lunch/${today.getFullYear()}/${(today.getMonth() + 1).toString().padStart(2, "0")}/${today.getDate().toString().padStart(2, "0")}/`,
+    `https://${districtId}.api.nutrislice.com/menu/api/weeks/school/${schoolId}/menu-type/lunch/${today.getFullYear()}/${(today.getMonth() + 1).toString().padStart(2, "0")}/${today.getDate().toString().padStart(2, "0")}/`,
   );
   const breakfastCall = await fetch(
-    `https://edinaschools.api.nutrislice.com/menu/api/weeks/school/countryside/menu-type/breakfast/${today.getFullYear()}/${(today.getMonth() + 1).toString().padStart(2, "0")}/${today.getDate().toString().padStart(2, "0")}/`,
+    `https://${districtId}.api.nutrislice.com/menu/api/weeks/school/${schoolId}/menu-type/breakfast/${today.getFullYear()}/${(today.getMonth() + 1).toString().padStart(2, "0")}/${today.getDate().toString().padStart(2, "0")}/`,
   );
 
   const finalResults = [];
