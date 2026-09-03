@@ -1,0 +1,41 @@
+<div class="layout">
+  <div class="columns">
+    {% for day in data %}
+    <div class="column">
+      <span class="title">{{ day.date }}</span>
+
+      {% for station in day.breakfast %}
+      <div class="item">
+        <div class="content">
+          <span class="title title--small">{{ station.name }}</span>
+          <div class="flex flex--col flex--left">
+            {% for entree in station.entrees %}
+            <span class="label label--small text--left">{{ entree }}</span>
+            {% endfor %}
+          </div>
+          <span class="description">{{ station.sides | join: ", " }}</span>
+        </div>
+      </div>
+      {% endfor %} {% for station in day.lunch %}
+      <div class="item">
+        <div class="content">
+          <span class="title title--small">{{ station.name }}</span>
+          <div class="flex flex--col flex--left">
+            {% for entree in station.entrees %}
+            <span class="label label--small text--left">{{ entree }}</span>
+            {% endfor %}
+          </div>
+          <span class="description">{{ station.sides | join: ", " }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="title_bar">
+  <img class="image" src="https://trmnl.com/images/plugins/trmnl--render.svg" />
+  <span class="title">{{ trmnl.plugin_settings.instance_name }}</span>
+  <span class="instance">Description</span>
+</div>
