@@ -35,7 +35,7 @@ async function run() {
             if (station && menu_item.food) {
               if (menu_item.category === "entree") {
                 if (!station.image) {
-                  station.image = menu_item.food.image_url;
+                  station.image = menu_item.food.hoverpic_url;
                 }
                 station.entrees.push(menu_item.food.name);
               } else {
