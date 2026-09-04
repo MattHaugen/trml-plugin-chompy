@@ -4,9 +4,17 @@
     <div class="column">
       <span class="title title--large">{{ day.date | date: "%A" }}</span>
       <span class="title title--small">{{ day.date | date: "%b %e, %Y"}}</span>
+      <div class="grid">
+  <div class="col">
+    <div>Item</div>
+    <div>Item</div>
+    <div>Item</div>
+    <div>Item</div>
+  </div>
+</div>
 
       {% for station in day.breakfast %}
-      <img class="image image-dither rounded image--cover" src="{{ station.image }}" />
+      <img class="image image-dither image--contain rounded h--20" src="{{ station.image }}" />
 
       <div class="item">
         <div class="content">
@@ -20,7 +28,7 @@
         </div>
       </div>
       {% endfor %} {% for station in day.lunch %}
-      <img class="image image-dither rounded image--cover" src="{{ station.image }}" />
+      <img class="image image-dither rounded image--contain rounded h--20" src="{{ station.image }}" />
       
       <div class="item">
         <div class="content">
